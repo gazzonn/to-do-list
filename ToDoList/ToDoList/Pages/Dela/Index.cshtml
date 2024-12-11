@@ -2,47 +2,47 @@
 @model ToDoList.Pages.Dela.IndexModel
 
 @{
-    ViewData["Title"] = "Dela";
+    ViewData["Title"] = "Дела";
 }
 
-<h1>Dela</h1>
+<h1>Дела</h1>
 
 <div class="row mb-3">
     <div class="col-md-6">
         <form method="get">
             <div class="input-group">
-                <span class="input-group-text">Title:</span>
+                <span class="input-group-text">Название:</span>
                 <input type="text" name="FilterTitle" value="@Model.FilterTitle" class="form-control"/>
             </div>
 
             <div class="col-md-6">
                 <div class="input-group">
-                    <span class="input-group-text">CreatedDate:</span>
+                    <span class="input-group-text">Дата создания:</span>
                     <input type="date" name="FilterCreatedDate" value="@Model.FilterCreatedDate?.ToString("yyyy-MM-dd")" class="form-control"/>
                 </div>
             </div>
         
             <div class="col-md-6">
                 <div class="input-group">
-                    <span class="input-group-text">DueDate:</span>
+                    <span class="input-group-text">Срок выполнения:</span>
                     <input type="date" name="FilterDueDate" value="@Model.FilterDueDate?.ToString("yyyy-MM-dd")" class="form-control"/>
                 </div>
             </div>
         
             <div class="col-md-6">
                 <div class="input-group">
-                    <label for="FilterIsCompleted" class="input-group-text">IsCompleted:</label>
+                    <label for="FilterIsCompleted" class="input-group-text">Выполнение:</label>
                     <select id="FilterIsCompleted" name="FilterIsCompleted" class="form-select">
-                        <option value="">All</option>
-                        <option value="true" selected="@(Model.FilterIsCompleted == true)">Yes</option>
-                        <option value="false" selected="@(Model.FilterIsCompleted == false)">No</option>
+                        <option value="">Все</option>
+                        <option value="true" selected="@(Model.FilterIsCompleted == true)">Да</option>
+                        <option value="false" selected="@(Model.FilterIsCompleted == false)">Нет</option>
                     </select>
                 </div>
             </div>
         
             <div class="col-md-12 mt-3 text-center">
-                <button type="submit" class="btn btn-primary">Apply filter</button>
-                <button type="reset" class="btn btn-secondary ml-2" onclick="location.href='@Url.Page("./Index")';return false;">Reset filter</button>
+                <button type="submit" class="btn btn-primary">Применить фильтры</button>
+                <button type="reset" class="btn btn-secondary ml-2" onclick="location.href='@Url.Page("./Index")';return false;">Сбросить фильтры</button>
             </div>
         </form>
     </div>
@@ -50,7 +50,7 @@
 
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create">Добавить дело</a>
 </p>
 <table class="table">
     <thead>
@@ -92,9 +92,9 @@
                 @Html.DisplayFor(modelItem => item.IsCompleted)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Изменить</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Подробнее</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Удалить</a>
             </td>
         </tr>
 }
